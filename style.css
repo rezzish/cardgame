@@ -1,0 +1,19 @@
+/*buncha style stuff going on in here*/
+
+body{
+	background-color: lightgrey;
+	height: 500px;
+}
+
+.spacer {
+	width: 20%;
+	display: inline-block;
+}
+
+#content {
+	width: 60%;
+	height: 100%;
+	display: inline-block;
+	background-color: grey;
+	padding: 10px;
+}

@@ -1,5 +1,22 @@
+<!DOCTYPE html>
+<html>
 <head>
-	<body>
-		Woah
-	</body>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>A site for sore eyes</title>
 </head>
+<body>
+	<div class="spacer"></div>
+	<div id="content"></div>
+	<div class="spacer"></div>
+
+	<!-- Load React. -->
+	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+	<!-- Load JSX -->
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<!-- Load my stuff -->
+	<script type="text/babel" src="deck.js"></script>
+</body>
+</html>	

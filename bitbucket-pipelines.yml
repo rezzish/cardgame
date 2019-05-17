@@ -8,5 +8,14 @@ image: node:10.15.3
 pipelines:
   default:
     - step:
-        script:
-          - node -v
+        caches:
+          - node
+        script: 
+          - npm install express --save
+        services: 
+          - mongo 
+
+definitions: 
+  services: 
+    mongo: 
+      image: mongo
