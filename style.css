@@ -10,6 +10,37 @@ body{
 	display: inline-block;
 }
 
+.cardBase {
+	display: inline-block;
+	vertical-align: top;
+	width: 55px;
+	height: 80px;
+	margin-right: 10px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.cardFront {
+	background-color: white;
+}
+
+.cardEmpty {
+	background-color: lightgrey;
+}
+
+.cardBack {
+	background-image: url('./img/cardback.png');
+	background-size: contain;
+}
+
+.deckTable {
+	width: 160px;
+	height: 120px;
+	padding: 20px;
+	border: solid;
+	white-space: nowrap;
+}
+
 #content {
 	width: 60%;
 	height: 100%;

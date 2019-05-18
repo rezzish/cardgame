@@ -1,19 +1,42 @@
 /* Code for deck drawing system */
 
+//the deck ranks and suits. probably make this a deck prop later
+const Ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+const Suits = ['♠','♥','♣','♦']
+
 class Card extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			front: false
+			flipped: this.props.flipped || 'false'
 		}
 	}
 
 	render() {
-		if(!this.props.front)
-		return (
-			<div className="card" style={cardStyle}
-			onClick={this.props.onClick}>{this.props.value}</div>
-		);
+		//console.log(this.props.front)
+		var cardValue = this.props.value
+		if(this.state.flipped == 'true') {
+			if(cardValue != null){
+				var rank = Ranks[cardValue % 13]
+				var suit = Suits[cardValue % 4]
+				return (
+					<div className="cardBase cardFront"
+					onClick={this.props.onClick}>
+						{rank}<br/>{suit}</div>
+				)
+			}
+			else
+				return (
+					<div className="cardBase cardEmpty"
+					onClick={this.props.onClick}>
+						{rank}<br/>{suit}</div>
+				)
+		}
+		else 
+			return (
+				<div className="cardBase cardBack"
+				onClick={this.props.onClick}></div>
+			)
 	}
 }
 
@@ -21,26 +44,28 @@ class DeckTable extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			suits: props.suits,
-			ranks: props.ranks,
+			suits: Suits,
+			ranks: Ranks,
 			counter: 0,
-			order: Array.apply(null, Array(props.suits * props.ranks)).map((x, i) => {return i+1})
+			order: Array.apply(null, Array(Suits.length * Ranks.length)).map((x, i) => {return i+1})
 		}
 		// console.log(this.state.order)
 	}
 
 	render() {
-		var cardIndex = this.state.counter - 1
-		var cardVal = (cardIndex >= 0) ? this.state.order[cardIndex].toString()
-			: ""
+		var cardIndex = this.state.counter
+		var cardVal = (cardIndex > 0) ? this.state.order[cardIndex-1].toString()
+			: null
 		return(
-			<div className="deckTable" style={deckTableStyle}>
-				<Card value="X" onClick={() => this.shiftDeck(1)}/>
-				<Card value={cardVal} onClick={() => this.shiftDeck(-1)}/>
+			<div className="deckTable">
+				<Card flipped='false' 
+				onClick={() => this.shiftDeck(1)}/>
+				<Card flipped='true' value={cardVal} 
+				onClick={() => this.shiftDeck(-1)}/>
 				<br/>
 				<div style={{marginTop: 10 }}>
 					<button onClick={() => this.shuffleDeck()}>Shuffle</button>
-					<button style={{float: 'right'}} onClick={() => this.shiftDeck(0)}>Collect</button>
+					<button style={{float: 'right'}} onClick={() => this.shiftDeck()}>Collect</button>
 				</div>
 			</div>
 		)
@@ -50,7 +75,7 @@ class DeckTable extends React.Component {
 		var newPos = this.state.counter;
 		newPos = i ?
 			Math.min(Math.max(newPos + i, 0), this.state.order.length)
-			: i;
+			: 0;
 		this.setState({
 			counter: newPos
 		})
@@ -72,21 +97,4 @@ class DeckTable extends React.Component {
 }
 
 var deckRoot = document.getElementById("content");
-var cardStyle = {
-	display: 'inline-block',
-	width: 75,
-	height: 100,
-	backgroundColor: 'lightblue',
-	marginRight: 10,
-	textAlign: 'center',
-	verticalAlign: 'middle',
-	lineHeight: 6
-}
-var deckTableStyle = {
-	width: 160,
-	height: 120,
-	padding: 20,
-	border: 'solid',
-	whiteSpace: 'nowrap'
-}
-ReactDOM.render(<DeckTable suits="4" ranks="13" />, deckRoot);
+ReactDOM.render(<DeckTable />, deckRoot);
