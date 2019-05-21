@@ -5,6 +5,18 @@ body{
 	height: 500px;
 }
 
+#content {
+	width: 60%;
+	height: 100%;
+	display: inline-block;
+	background-color: grey;
+	padding: 10px;
+}
+
+#express {
+	
+}
+
 .spacer {
 	width: 20%;
 	display: inline-block;
@@ -22,6 +34,11 @@ body{
 
 .cardFront {
 	background-color: white;
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	-ms-user-select:none; 
+	user-select:none;
+	-o-user-select:none;
 }
 
 .cardEmpty {
@@ -33,18 +50,18 @@ body{
 	background-size: contain;
 }
 
+.redText {
+	color: red;
+}
+
+.blackText {
+	color: black;
+}
+
 .deckTable {
 	width: 160px;
 	height: 120px;
 	padding: 20px;
 	border: solid;
 	white-space: nowrap;
-}
-
-#content {
-	width: 60%;
-	height: 100%;
-	display: inline-block;
-	background-color: grey;
-	padding: 10px;
 }
