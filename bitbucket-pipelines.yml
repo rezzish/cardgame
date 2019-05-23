@@ -11,8 +11,7 @@ pipelines:
         caches:
           - node
         script: 
-          - npm install express
-          - npm install body-parser
+          - npm install 
         services: 
           - mongo 
 
