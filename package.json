@@ -1,5 +1,5 @@
 {
-  "name": "averythings",
+  "name": "cardgame",
   "version": "1.0.0",
   "description": "",
   "main": "cardsapi.js",
@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/averythings/averythings.bitbucket.io.git"
+    "url": "git+ssh://git@github.com:rezzish/cardgame.git"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/averythings/averythings.bitbucket.io#readme",
+  "homepage": "https://github.com/rezzish/cardgame.git#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.0"
