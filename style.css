@@ -2,24 +2,41 @@
 
 body{
 	background-color: lightgrey;
-	height: 500px;
 }
 
 #content {
-	width: 60%;
-	height: 100%;
-	display: inline-block;
+	width: 1024px;
+	height: auto;
 	background-color: grey;
+	padding: 10px;
+	margin: auto;
+}
+
+#content > div {
+	display: flex;
+	border: solid;
+	margin: 5px;
+}
+
+#header > div {
+	border: solid;
+	margin: 5px;
 	padding: 10px;
 }
 
-#express {
-	
+#cards {
+	width: auto;
+	height: auto;
+	white-space: nowrap;
 }
 
-.spacer {
-	width: 20%;
-	display: inline-block;
+#status {
+	flex-grow: 1;
+}
+
+#story {
+	flex-direction: column;
+	height: 100px;
 }
 
 .cardBase {
@@ -61,7 +78,4 @@ body{
 .deckTable {
 	width: 160px;
 	height: 120px;
-	padding: 20px;
-	border: solid;
-	white-space: nowrap;
 }
