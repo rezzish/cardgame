@@ -1,4 +1,7 @@
 # Specify filepatterns you want git to ignore.
 
+#common ignores
 node_modules
+
+#prod ignores
 src
